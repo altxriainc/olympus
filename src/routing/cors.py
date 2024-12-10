@@ -25,3 +25,6 @@ class CORSMiddleware(Middleware):
         response.headers["Access-Control-Allow-Origin"] = self.allow_origins
         response.headers["Access-Control-Allow-Methods"] = self.allow_methods
         response.headers["Access-Control-Allow-Headers"] = self.allow_headers
+        if self.allow_credentials:
+            response.headers["Access-Control-Allow-Credentials"] = "true"
+        return response  
